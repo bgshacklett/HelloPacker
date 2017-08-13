@@ -15,4 +15,4 @@ phases:
 
   build:
     commands:
-      - /opt/packer/packer build .\windows_2012_r2.json
+      - /opt/packer/packer build ./windows_2012_r2.json
