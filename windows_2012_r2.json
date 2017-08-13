@@ -1,0 +1,36 @@
+{
+  "variables": {
+    "source_name_filter": "Windows_Server-2012-R2_RTM-English-64Bit-Base-*",
+    "instance_type": "t2.micro",
+    "region": "us-east-2"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "{{user `region`}}",
+      "source_ami_filter": {
+        "filters": {
+          "virtualization-type": "hvm",
+          "name": "{{user `source_name_filter`}}",
+          "root-device-type": "ebs"
+        },
+        "owners": ["amazon"],
+        "most_recent": true
+      },
+      "instance_type": "{{user `instance_type`}}",
+      "ami_name": "test-packer-20170813",
+      "user_data_file": "./userdata.ps1",
+      "communicator": "winrm",
+      "winrm_username": "Administrator"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "powershell",
+      "inline": [
+        "C:\\PROGRA~1\\Amazon\\Ec2ConfigService\\Ec2Config.exe -sysprep"
+      ]
+    }
+  ]
+}
