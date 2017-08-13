@@ -1,0 +1,18 @@
+version: 0.2
+
+environment_variables:
+  plaintext:
+    PACKER_NO_COLOR: "1"
+
+phases:
+  install:
+    commands:
+      - apt-get update || echo "Failed to run apt-get update."
+      - apt-get install jq -y || echo "Failed to install and/or update jq."
+      - wget https://releases.hashicorp.com/packer/1.0.4/packer_1.0.4_linux_amd64.zip
+      - mkdir -p /opt/packer
+      - unzip packer_1.0.4_linux_amd64.zip -d /opt/packer
+
+  build:
+    commands:
+      - ./packer build .\windows_2012_r2.json
