@@ -26,5 +26,5 @@ $WinRMServiceSettings =
 
 Set-WSManQuickConfig @WinRMBasicSettings
 Set-WSManInstance @WinRMServiceAuthSettings
-Set-WSManInstance @WinRMSecuritySettings
+Set-WSManInstance @WinRMServiceSettings
 </powershell>
