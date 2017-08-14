@@ -1,7 +1,7 @@
 <powershell>
 $WinRMSettings =
 @{
-  "UseSSL" = $true
+  "UseSSL" = $false
   "Force"  = $true
 }
 Set-WSManQuickConfig @WinRMSettings
