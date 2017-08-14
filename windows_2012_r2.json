@@ -22,7 +22,7 @@
       "user_data_file": "./userdata.ps1",
       "communicator": "winrm",
       "winrm_username": "Administrator",
-      "winrm_use_ssl": true,
+      "winrm_use_ssl": false,
       "winrm_insecure": true,
       "winrm_use_ntlm": true
     }

@@ -5,7 +5,7 @@ Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private
 # Enable WinRM
 $WinRMSettings =
 @{
-  "UseSSL" = $true
+  "UseSSL" = $false
   "Force"  = $true
 }
 Set-WSManQuickConfig @WinRMSettings
